@@ -7,6 +7,10 @@
       Create
     </a>
   </h1>
+  <form method="get" action="">
+    {{ search_form }}
+    <input type="submit" value="🔎" class="btn-secondary">
+  </form>
 
   {% if manufacturer_list %}
     <table class="table">
