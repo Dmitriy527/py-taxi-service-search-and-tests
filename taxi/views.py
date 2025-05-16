@@ -1,10 +1,7 @@
-from lib2to3.fixes.fix_input import context
-
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -130,7 +127,7 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(DriverListView, self).get_context_data(**kwargs)
-        username = self.request.GET.get("query_key")
+        username = self.request.GET.get("user_name")
         context["search_form"] = DriverSearchForm(
             initial={"user_name": username}
         )
