@@ -42,7 +42,6 @@ class ModelTests(TestCase):
         car = Car(
             model="test_model",
             manufacturer=self.manufacturer,
-            id=self.driver,
         )
         self.assertEqual(str(car), car.model)
 
